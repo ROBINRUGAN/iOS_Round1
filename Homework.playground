@@ -1,0 +1,65 @@
+func AnalyzeOfScore(_ scores:[Int])
+{
+    func AverageOfScore(_ scores:[Int])->Int
+    {
+        var sum : Int = 0
+        for i in scores
+        {
+            sum+=i
+        }
+        return sum/scores.count
+    }
+    func MaxOfScore(_ scores:[Int])->Int
+    {
+        var maxx : Int = scores[0]
+        for i in scores
+        {
+            maxx = max(maxx, i)
+        }
+        return maxx
+    }
+    print("The average score is: \(AverageOfScore(scores))")
+    print("The max score is: \(MaxOfScore(scores))")
+}
+func IsLeapYear(_ year:Int)->String
+{
+    if year % 400 == 0 || year % 4 == 0 && year % 100 != 0
+    {
+        return "\(year) is a leap year"
+    }
+    return "\(year) is not a leap year"
+}
+func Isprime(_ n:Int) ->Bool
+{
+    if n == 1 {
+        return false
+    }
+    if n==2 {
+        return true
+    }
+    for i in Range(2...n)
+    {
+        if(i*i > n) 
+        {
+            break;
+        }
+        if(n%i == 0){
+            return false
+        }
+    }
+    return true
+    
+}
+var scores = [78,66,98,53,82,9,78,69]
+var year = 2022
+AnalyzeOfScore(scores)
+print(IsLeapYear(year))
+for i in Range(1...1000)
+{
+    if(Isprime(i))
+    {
+        print(i,terminator: " ")
+    }
+}
+print("\n",Isprime(998244353) ? "Yes" : "No")
+
